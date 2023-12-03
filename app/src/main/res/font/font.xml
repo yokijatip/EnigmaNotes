@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <font
+        android:fontStyle="normal"
+        android:font="@font/roboto_thin"
+        />
+    <font
+        android:fontStyle="normal"
+        android:font="@font/roboto_light"
+        />
+    <font
+        android:fontStyle="normal"
+        android:font="@font/roboto_reguler"
+        />
+    <font
+        android:fontStyle="normal"
+        android:font="@font/roboto_medium"
+        />
+    <font
+        android:fontStyle="normal"
+        android:font="@font/roboto_bold"
+        />
+    <font
+        android:fontStyle="normal"
+        android:font="@font/roboto_black"
+        />
+    <font
+        android:fontStyle="normal"
+        android:font="@font/lancelot_reguler"
+        />
+
+</font-family>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "3480919263",
+    "project_id": "enigma-notes-yokijp",
+    "storage_bucket": "enigma-notes-yokijp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3480919263:android:8ee0b3f9e55e59d70b5d6a",
+        "android_client_info": {
+          "package_name": "com.enigma.enigmanotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkeDcQ_gBz_sY9OlWZDiMH4HVK_DjWrNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

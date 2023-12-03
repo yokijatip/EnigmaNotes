@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        app:strokeWidth="0dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="24dp"
+        android:elevation="24dp"
+        app:cardUseCompatPadding="true"
+        android:backgroundTint="@color/white"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_error"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_error_alert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Error"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/roboto_reguler"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:textSize="13sp"
+                tools:ignore="TextSizeCheck"
+
+                tools:text="Login gagal, Periksa kembali Email dan password dengan benar, pastikan harus lebih dari 8 karakter" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_gotit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:text="Got it"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="13sp"
+                />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
