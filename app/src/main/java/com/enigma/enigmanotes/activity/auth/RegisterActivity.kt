@@ -32,15 +32,13 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun initRegister() {
-        val username = binding.edtUsername.text.toString().trim()
         val email = binding.edtEmail.text.toString().trim()
         val password = binding.edtPassword.text.toString().trim()
 
 //        Validasi Username, email dan password jika kosong akan error dan menampilkan Alert
-        if (username.isEmpty() || email.isEmpty() || password.isEmpty()){
+        if (email.isEmpty() || password.isEmpty()) {
             onFailureRegister("Username, email dan password harus semuanya di isi")
             binding.apply {
-                edtUsername.requestFocus()
                 edtEmail.requestFocus()
                 edtPassword.requestFocus()
             }
@@ -61,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-//    Fungsi authentication untuk register
+    //    Fungsi authentication untuk register
     private fun authRegister(email: String, password: String) {
         CommonUtils.loading(binding.loading, true)
         auth.createUserWithEmailAndPassword(email, password)
@@ -81,6 +79,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun onSuccessRegister(message: String) {
-        CommonUtils.alertSuccess(this@RegisterActivity, message, this)
+        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+        CommonUtils.alertSuccess(this@RegisterActivity, message, this, intent)
     }
 }

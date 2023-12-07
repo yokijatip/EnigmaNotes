@@ -5,7 +5,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.enigma.enigmanotes.activity.add.AddActivity
+import com.enigma.enigmanotes.activity.main.MainActivity
 import com.enigma.enigmanotes.databinding.ActivitySplashBinding
+import com.enigma.enigmanotes.preferences.AuthToken
+import com.enigma.enigmanotes.preferences.dataStore
+import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
 
@@ -19,11 +25,22 @@ class SplashActivity : AppCompatActivity() {
 
         handler.postDelayed({
 
-            val intent = Intent(this@SplashActivity, LandingActivity::class.java)
-            startActivity(intent)
-            finish()
-
+            lifecycleScope.launch {
+                val token = getToken()
+                if (token.isNotEmpty()) {
+                    val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this@SplashActivity, LandingActivity::class.java)
+                    startActivity(intent)
+                }
+                finish()
+            }
         }, 3000)
+    }
 
+    private suspend fun getToken():String {
+        val dataStore = AuthToken.getInstance(this.dataStore)
+        return dataStore.getToken()
     }
 }

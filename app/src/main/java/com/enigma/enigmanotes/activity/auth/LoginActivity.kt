@@ -7,8 +7,11 @@ import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
 import com.enigma.enigmanotes.activity.main.MainActivity
 import com.enigma.enigmanotes.databinding.ActivityLoginBinding
+import com.enigma.enigmanotes.preferences.AuthToken
+import com.enigma.enigmanotes.preferences.dataStore
 import com.enigma.enigmanotes.utils.CommonUtils
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.runBlocking
 
 class LoginActivity : AppCompatActivity() {
 
@@ -65,7 +68,11 @@ class LoginActivity : AppCompatActivity() {
                         ?.addOnCompleteListener { tokenId ->
                             if (tokenId.isSuccessful) {
                                 val token = tokenId.result?.token
-                                Log.d("Auth Yoki", "Token nya adalah : $token")
+                                runBlocking {
+                                    if (token != null) {
+                                        saveToken(token)
+                                    }
+                                }
                                 CommonUtils.loading(binding.loading, false)
                                 onSuccessLogin()
                             } else {
@@ -86,5 +93,11 @@ class LoginActivity : AppCompatActivity() {
     private fun onSuccessLogin() {
         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         finish()
+    }
+
+    private suspend fun saveToken(token: String) {
+        val dataStore = AuthToken.getInstance(this.dataStore)
+        Log.d("Auth", "Token nya adalah : $token")
+        dataStore.saveToken(token)
     }
 }

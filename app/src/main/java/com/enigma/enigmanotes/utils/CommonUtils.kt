@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.enigma.enigmanotes.R
 import com.enigma.enigmanotes.activity.auth.LoginActivity
@@ -34,7 +35,7 @@ object CommonUtils {
         dialog.show()
     }
 
-    fun alertSuccess(context: Context, message: String, activityToFinish: Activity) {
+    fun alertSuccess(context: Context, message: String, activityToFinish: Activity, intent: Intent) {
         val builder = AlertDialog.Builder(context)
         builder.setCancelable(true)
         val view = LayoutInflater.from(context).inflate(R.layout.custom_success_alert, null)
@@ -49,7 +50,6 @@ object CommonUtils {
 
         btnGotit.setOnClickListener {
             dialog.dismiss()
-            val intent = Intent(context, LoginActivity::class.java)
             context.startActivity(intent)
             activityToFinish.finish()
         }
@@ -58,6 +58,10 @@ object CommonUtils {
 
     fun loading(view: View, state: Boolean) {
         view.visibility = if (state) View.VISIBLE else View.GONE
+    }
+
+    fun showToast(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
 }
